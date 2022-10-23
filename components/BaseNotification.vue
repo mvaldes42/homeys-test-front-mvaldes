@@ -1,31 +1,37 @@
 <template>
   <div class="notif">
     <div class="title_container">
-      <img class="icon" :src="icon" />
+      <IconInfo v-if="variant == undefined || variant == 'info'" class="icon" />
+      <IconDanger v-if="variant == 'danger'" class="icon" />
+      <IconSuccess v-if="variant == 'success'" class="icon" />
+      <IconWarning v-if="variant == 'warning'" class="icon" />
       <span class="text title">{{ title }}</span>
-      <img
-        class="icon close"
-        src="../assets/close.svg"
-        @click="$emit('closeEvent')"
-      />
+      <IconClose class="icon close" @click="$emit('closeEvent')" />
     </div>
     <p class="text contents">{{ content }}</p>
   </div>
 </template>
 
 <script>
+import IconClose from '@/assets/close.svg'
+import IconDanger from '@/assets/danger.svg'
+import IconSuccess from '@/assets/success.svg'
+import IconWarning from '@/assets/warning.svg'
+import IconInfo from '@/assets/info.svg'
+
 export default {
   name: 'BaseNotification',
+  components: { IconClose, IconDanger, IconSuccess, IconWarning, IconInfo },
   props: {
-    icon: {
-      type: String,
-      required: true,
-    },
     title: {
       type: String,
       required: true,
     },
     content: {
+      type: String,
+      required: true,
+    },
+    variant: {
       type: String,
       required: true,
     },

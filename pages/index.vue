@@ -3,9 +3,9 @@
     <BaseNotification
       v-for="notif in filteredNotifs"
       :key="notif.id"
-      :icon="notif.icon"
       :title="notif.title"
       :content="notif.content"
+      :variant="notif.variant"
       :class="notif.variant"
       @closeEvent="() => (notif.show = !notif.show)"
     />
@@ -16,7 +16,6 @@
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'danger',
-          icon: '../assets/danger.svg',
           show: true,
         })
       "
@@ -28,10 +27,6 @@
 
 <script>
 import BaseNotification from '../components/BaseNotification.vue'
-import IconDanger from '../assets/danger.svg'
-import IconSuccess from '../assets/success.svg'
-import IconWarning from '../assets/warning.svg'
-import IconInfo from '../assets/info.svg'
 
 export default {
   name: 'IndexPage',
@@ -55,7 +50,6 @@ export default {
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'danger',
-          icon: IconDanger,
           show: false,
         },
         {
@@ -63,7 +57,6 @@ export default {
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'success',
-          icon: IconSuccess,
           show: false,
         },
         {
@@ -71,7 +64,6 @@ export default {
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'warning',
-          icon: IconWarning,
           show: false,
         },
         {
@@ -79,7 +71,6 @@ export default {
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'info',
-          icon: IconInfo,
           show: false,
         },
       ],
