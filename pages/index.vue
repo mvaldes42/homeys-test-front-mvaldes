@@ -14,7 +14,7 @@
         :content="notif.content"
         :variant="notif.variant"
         :class="notif.variant"
-        @closeEvent="() => (notif.show = !notif.show)"
+        @closeEvent="() => deleteNotif(notif)"
       />
     </div>
   </div>
@@ -45,28 +45,24 @@ export default {
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'danger',
-          show: false,
         },
         {
           title: 'Modal Window',
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'success',
-          show: false,
         },
         {
           title: 'Modal Window',
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'warning',
-          show: false,
         },
         {
           title: 'Modal Window',
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'info',
-          show: false,
         },
       ],
     }
@@ -74,7 +70,7 @@ export default {
   computed: {
     filteredNotifs() {
       this.notifMax()
-      return this.currentNotifs.filter(({ show }) => show)
+      return this.currentNotifs
     },
   },
   methods: {
@@ -83,8 +79,11 @@ export default {
         title: notif.title,
         content: notif.content,
         variant: notif.variant,
-        show: true,
       })
+    },
+    deleteNotif(notif) {
+      const index = this.currentNotifs.findIndex((element) => element === notif)
+      this.currentNotifs.splice(index, 1)
     },
     notifMax() {
       if (this.currentNotifs.length > 5) this.currentNotifs.splice(0, 1)
