@@ -9,6 +9,20 @@
       :class="notif.variant"
       @closeEvent="() => (notif.show = !notif.show)"
     />
+    <button
+      @click.prevent="
+        addNotif({
+          title: 'Modal Window',
+          content:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
+          variant: 'danger',
+          icon: '../assets/danger.svg',
+          show: true,
+        })
+      "
+    >
+      Danger !!!
+    </button>
   </div>
 </template>
 
@@ -34,6 +48,7 @@ export default {
        *   variant // type de notification (sert pour déterminer quelle couleur utiliser)
        * }]
        */
+      currentNotifs: [],
       notifications: [
         {
           title: 'Modal Window',
@@ -41,7 +56,7 @@ export default {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'danger',
           icon: IconDanger,
-          show: true,
+          show: false,
         },
         {
           title: 'Modal Window',
@@ -49,7 +64,7 @@ export default {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'success',
           icon: IconSuccess,
-          show: true,
+          show: false,
         },
         {
           title: 'Modal Window',
@@ -57,7 +72,7 @@ export default {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'warning',
           icon: IconWarning,
-          show: true,
+          show: false,
         },
         {
           title: 'Modal Window',
@@ -65,14 +80,19 @@ export default {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'info',
           icon: IconInfo,
-          show: true,
+          show: false,
         },
       ],
     }
   },
   computed: {
     filteredNotifs() {
-      return this.notifications.filter(({ show }) => show)
+      return this.currentNotifs.filter(({ show }) => show)
+    },
+  },
+  methods: {
+    addNotif(notif) {
+      this.currentNotifs.push(notif)
     },
   },
 }
