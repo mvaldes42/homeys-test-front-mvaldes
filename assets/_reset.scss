@@ -68,3 +68,28 @@ video {
   border: 0;
   font-family: 'DM Sans';
 }
+
+:root {
+  // colors
+  --color-danger: #f7e4e4;
+  --color-success: #e4f7e8;
+  --color-warning: #f7f2e4;
+  --color-info: #e4e9f7;
+}
+
+.danger {
+  background: var(--color-danger);
+  border: 2px solid #d29393;
+}
+.success {
+  background: var(--color-success);
+  border: 2px solid #89b291;
+}
+.warning {
+  background: var(--color-warning);
+  border: 1px solid #d4c296;
+}
+.info {
+  background: var(--color-info);
+  border: 2px solid #96a8d8;
+}

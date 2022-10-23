@@ -1,10 +1,24 @@
 <template>
-  <div class="page"></div>
+  <div class="page">
+    <BaseNotification
+      v-for="notif in notifications"
+      :key="notif.id"
+      :icon="notif.icon"
+      :title="notif.title"
+      :content="notif.content"
+      :class="notif.variant"
+    />
+  </div>
 </template>
 
 <script>
+import BaseNotification from '../components/BaseNotification.vue'
+
 export default {
   name: 'IndexPage',
+  components: {
+    BaseNotification,
+  },
   data() {
     return {
       /**
@@ -18,24 +32,32 @@ export default {
       notifications: [
         {
           title: 'Modal Window',
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor",
+          content:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'danger',
+          icon: '../assets/danger.svg',
         },
         {
           title: 'Modal Window',
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor",
+          content:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'success',
+          icon: '../assets/success.svg',
         },
         {
           title: 'Modal Window',
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor",
+          content:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'warning',
+          icon: '../assets/warning.svg',
         },
         {
           title: 'Modal Window',
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor",
+          content:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'info',
-        }
+          icon: '../assets/info.svg',
+        },
       ],
     }
   },
