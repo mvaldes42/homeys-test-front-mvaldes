@@ -73,6 +73,7 @@ export default {
   },
   computed: {
     filteredNotifs() {
+      this.notifMax()
       return this.currentNotifs.filter(({ show }) => show)
     },
   },
@@ -84,6 +85,9 @@ export default {
         variant: notif.variant,
         show: true,
       })
+    },
+    notifMax() {
+      if (this.currentNotifs.length > 5) this.currentNotifs.splice(0, 1)
     },
   },
 }
