@@ -45,6 +45,10 @@ export default {
   overflow: hidden;
 }
 
+.notif + .notif {
+  margin-top: 20px;
+}
+
 .title_container {
   width: 100%;
   display: flex;

@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <BaseNotification
-      v-for="notif in notifications.slice(0, 1)"
+      v-for="notif in notifications"
       :key="notif.id"
       :icon="notif.icon"
       :title="notif.title"
