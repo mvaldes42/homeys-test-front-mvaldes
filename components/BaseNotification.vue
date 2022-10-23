@@ -41,22 +41,23 @@ export default {
 
 <style lang="scss" scoped>
 .notif {
-  max-width: 527px;
-  max-height: 160px;
-  //   position: absolute;
+  max-width: 263px;
+  max-height: 80px;
+
   box-sizing: border-box;
   display: flex;
+  bottom: 0;
   flex-direction: column;
   align-items: flex-start;
-  padding: 24px;
-  gap: 8px;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
+  padding: 12px;
+  gap: 4px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   overflow: hidden;
 }
 
 .notif + .notif {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .title_container {
@@ -66,42 +67,42 @@ export default {
   align-content: center;
 }
 .icon {
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 16px;
   align-self: center;
   order: 0;
   flex-grow: 0;
 }
 .icon.close {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   order: 2;
   cursor: pointer;
 }
 .icon.close:active {
-  width: 19px;
-  height: 19px;
+  width: 9px;
+  height: 9px;
 }
 .text {
   font-family: 'DM Sans';
   font-style: normal;
 }
 .title {
-  padding-left: 19px;
+  padding-left: 9px;
   align-self: center;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 10px;
   color: #424242;
   order: 1;
   flex-grow: 1;
 }
 .contents {
-  max-width: 431px;
-  max-height: 72px;
-  padding-left: calc(32px + 19px);
+  max-width: 215.5px;
+  max-height: 36px;
+  padding-left: calc(16px + 9px);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 8px;
+  line-height: 12px;
   color: #757575;
   flex: none;
   order: 0;
