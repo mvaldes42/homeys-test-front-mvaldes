@@ -3,7 +3,11 @@
     <div class="title_container">
       <img class="icon" :src="icon" />
       <span class="text title">{{ title }}</span>
-      <img class="icon close" src="../assets/close.svg" />
+      <img
+        class="icon close"
+        src="../assets/close.svg"
+        @click="$emit('closeEvent')"
+      />
     </div>
     <p class="text contents">{{ content }}</p>
   </div>
@@ -66,6 +70,11 @@ export default {
   width: 20px;
   height: 20px;
   order: 2;
+  cursor: pointer;
+}
+.icon.close:active {
+  width: 19px;
+  height: 19px;
 }
 .text {
   font-family: 'DM Sans';
