@@ -33,7 +33,7 @@ export default {
 .notif {
   max-width: 527px;
   max-height: 160px;
-//   position: absolute;
+  //   position: absolute;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <BaseNotification
-      v-for="notif in notifications"
+      v-for="notif in notifications.slice(0, 1)"
       :key="notif.id"
       :icon="notif.icon"
       :title="notif.title"
@@ -13,6 +13,10 @@
 
 <script>
 import BaseNotification from '../components/BaseNotification.vue'
+import IconDanger from '../assets/danger.svg'
+import IconSuccess from '../assets/success.svg'
+import IconWarning from '../assets/warning.svg'
+import IconInfo from '../assets/info.svg'
 
 export default {
   name: 'IndexPage',
@@ -35,28 +39,28 @@ export default {
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'danger',
-          icon: '../assets/danger.svg',
+          icon: IconDanger,
         },
         {
           title: 'Modal Window',
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'success',
-          icon: '../assets/success.svg',
+          icon: IconSuccess,
         },
         {
           title: 'Modal Window',
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'warning',
-          icon: '../assets/warning.svg',
+          icon: IconWarning,
         },
         {
           title: 'Modal Window',
           content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor',
           variant: 'info',
-          icon: '../assets/info.svg',
+          icon: IconInfo,
         },
       ],
     }
