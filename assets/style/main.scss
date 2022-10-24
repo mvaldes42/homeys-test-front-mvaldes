@@ -1,0 +1,60 @@
+:root {
+  // colors
+  --color-danger: #f7e4e4;
+  --color-success: #e4f7e8;
+  --color-warning: #f7f2e4;
+  --color-info: #e4e9f7;
+}
+
+.danger {
+  background: var(--color-danger);
+  border: 1px solid #d29393;
+}
+.success {
+  background: var(--color-success);
+  border: 1px solid #89b291;
+}
+.warning {
+  background: var(--color-warning);
+  border: 1px solid #d4c296;
+}
+.info {
+  background: var(--color-info);
+  border: 1px solid #96a8d8;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+}
+
+.push-button {
+  width: fit-content;
+  height: fit-content;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+  background-color: #dfdfdf;
+  padding: 10px;
+  border-radius: 10px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+
+  margin: auto;
+}
+.push-button:hover {
+  background: none;
+  border: 1px solid #dfdfdf;
+}
+.notif-container {
+  height: 100vh;
+  width: 100%;
+  display: table-cell;
+  vertical-align: bottom;
+}

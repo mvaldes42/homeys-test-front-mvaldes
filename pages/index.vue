@@ -1,6 +1,8 @@
 <template>
   <div class="page">
     <button
+      id="notif-generate-button"
+      type="submit"
       class="push-button"
       @click.prevent="addNotif(notifications[Math.floor(Math.random() * 3)])"
     >
@@ -75,11 +77,7 @@ export default {
   },
   methods: {
     addNotif(notif) {
-      this.currentNotifs.push({
-        title: notif.title,
-        content: notif.content,
-        variant: notif.variant,
-      })
+      this.currentNotifs.push(notif)
     },
     deleteNotif(notif) {
       const index = this.currentNotifs.findIndex((element) => element === notif)
@@ -92,39 +90,5 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.page {
-  position: relative;
-  min-height: 100vh;
-}
-
-.push-button {
-  width: fit-content;
-  height: fit-content;
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  text-align: center;
-  background-color: #dfdfdf;
-  padding: 10px;
-  border-radius: 10px;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  cursor: pointer;
-
-  margin: auto;
-}
-.push-button:hover {
-  background: none;
-  border: 1px solid #dfdfdf;
-}
-.notif-container {
-  height: 100vh;
-  width: 100%;
-  display: table-cell;
-  vertical-align: bottom;
-}
+@import '../assets/style/main.scss';
 </style>

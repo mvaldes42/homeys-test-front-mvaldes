@@ -1,12 +1,37 @@
 <template>
   <div class="notif">
     <div class="title_container">
-      <IconInfo v-if="variant == undefined || variant == 'info'" class="icon" />
-      <IconDanger v-if="variant == 'danger'" class="icon" />
-      <IconSuccess v-if="variant == 'success'" class="icon" />
-      <IconWarning v-if="variant == 'warning'" class="icon" />
-      <span class="text title">{{ title }}</span>
-      <IconClose class="icon close" @click="$emit('closeEvent')" />
+      <div aria-hidden="true">
+        <IconInfo
+          v-if="variant == undefined || variant == 'info'"
+          alt="Icone d'information"
+          class="icon"
+        />
+        <IconDanger
+          v-if="variant == 'danger'"
+          alt="Notification d'erreur"
+          class="icon"
+        />
+        <IconSuccess
+          v-if="variant == 'success'"
+          alt="icone de validation"
+          class="icon"
+        />
+        <IconWarning
+          v-if="variant == 'warning'"
+          alt="Icone d'avertissement"
+          class="icon"
+        />
+      </div>
+      <h1 class="text title">{{ title }}</h1>
+      <IconClose
+        id="notif-close-button"
+        class="icon close"
+        role="button"
+        tabindex="0"
+        @keyup.enter.native="$emit('closeEvent')"
+        @click="$emit('closeEvent')"
+      />
     </div>
     <p class="text contents">{{ content }}</p>
   </div>
@@ -40,73 +65,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.notif {
-  max-width: 263px;
-  max-height: 80px;
-
-  box-sizing: border-box;
-  display: flex;
-  bottom: 0;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 12px;
-  gap: 4px;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.notif + .notif {
-  margin-top: 10px;
-}
-
-.title_container {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-}
-.icon {
-  width: 16px;
-  height: 16px;
-  align-self: center;
-  order: 0;
-  flex-grow: 0;
-}
-.icon.close {
-  width: 10px;
-  height: 10px;
-  order: 2;
-  cursor: pointer;
-}
-.icon.close:active {
-  width: 9px;
-  height: 9px;
-}
-.text {
-  font-family: 'DM Sans';
-  font-style: normal;
-}
-.title {
-  padding-left: 9px;
-  align-self: center;
-  font-weight: 500;
-  font-size: 10px;
-  color: #424242;
-  order: 1;
-  flex-grow: 1;
-}
-.contents {
-  max-width: 215.5px;
-  max-height: 36px;
-  padding-left: calc(16px + 9px);
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 12px;
-  color: #757575;
-  flex: none;
-  order: 0;
-  flex-grow: 1;
-  overflow-y: auto;
-}
+@import '../assets/style/notifications.scss';
 </style>
